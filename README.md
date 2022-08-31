@@ -1,4 +1,4 @@
-Project 3 from Bob Zirol's React Class - Webapp of the dice game Tenzies. Rounds out the course by hitting just about every topic learned so far. Learning react has been a ton of fun and while I know I am still very new to frameworks, I am very pleased with the work I've done and the progress I have made. \
+Project 4 from Bob Zirol's React Class - Webapp of the dice game Tenzies. Rounds out the course by hitting just about every topic learned so far. Learning react has been a ton of fun and while I know I am still very new to frameworks, I am very pleased with the work I've done and the progress I have made. \
 Can be viewed at: https://jp-walter-project-4.netlify.app/
 
 # Getting Started with Create React App
