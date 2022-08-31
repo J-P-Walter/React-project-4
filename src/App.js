@@ -10,28 +10,45 @@ function App() {
       const Die = {
         value: Math.floor(Math.random() * 6) + 1,
         isHeld: false,
-        key: nanoid(),
+        id: nanoid(),
       };
       newDice.push(Die);
     }
-    console.log(newDice);
+    //console.log(newDice);
     return newDice;
   }
 
   //New state, calls allNewDice as default
   const [dice, setDice] = React.useState(allNewDice());
 
+  const [rolls, setRolls] = React.useState(1);
+
   //Maps over dice object array to geneate array of Die elements
   const diceElements = dice.map((die) => (
-    <Die value={die.value} isHeld={die.isHeld} key={die.key} />
+    <Die
+      value={die.value}
+      isHeld={die.isHeld}
+      key={die.id}
+      id={die.id}
+      hold={() => hold(die.id)}
+    />
   ));
 
-  function roll() {
-    setDice(allNewDice());
+  function hold(id) {
+    setDice((prevDice) =>
+      prevDice.map((die) =>
+        die.id === id ? { ...die, isHeld: !die.isHeld } : die
+      )
+    );
   }
 
-  function hold() {
-    return;
+  function roll() {
+    setDice((prevDice) =>
+      prevDice.map((die) =>
+        die.isHeld ? die : { ...die, value: Math.floor(Math.random() * 6) + 1 }
+      )
+    );
+    setRolls((prevRoll) => prevRoll + 1);
   }
 
   return (
@@ -41,10 +58,9 @@ function App() {
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
       </h3>
-      <div className="dice" onClick={hold}>
-        {diceElements}
-      </div>
+      <div className="dice">{diceElements}</div>
       <button onClick={roll}>Roll</button>
+      <p className="roll-counter">Rolls: {rolls}</p>
     </main>
   );
 }
