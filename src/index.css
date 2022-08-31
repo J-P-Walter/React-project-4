@@ -17,6 +17,12 @@ code {
 * {
   box-sizing: border-box;
 }
+.highscore {
+  color: white;
+  font-family: Karla;
+  text-align: center;
+  font-size: 45px;
+}
 
 .gameBoard {
   width: 750px;
@@ -92,7 +98,6 @@ button {
 }
 button:active {
   box-shadow: none;
-
   transform: translate(3px, 5px);
 }
 .roll-counter {
